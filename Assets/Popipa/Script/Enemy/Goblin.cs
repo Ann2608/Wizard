@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Goblin : MonoBehaviour
 {
     [SerializeField] private float AtkCoolDown;
-    [SerializeField] private int Dmg;
+    [SerializeField] private float Dmg;
     [SerializeField] private float Range;
     [SerializeField] private float ColliderDistance;        //độ rộng của Collider
     private float CoolDownTimer = Mathf.Infinity;
@@ -18,31 +18,32 @@ public class Enemy : MonoBehaviour
     private EnemyMv EneMv;
     void Start()
     {
-       rg = GetComponent<Rigidbody2D>();
-       Anim = GetComponent<Animator>();
-       EneMv = GetComponentInParent<EnemyMv>();
+        rg = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
+        EneMv = GetComponentInParent<EnemyMv>();
     }
     void Update()
     {
         CoolDownTimer += Time.deltaTime;
         if (PlayerSight())
-            {
+        {
             if (CoolDownTimer >= AtkCoolDown)
             {
                 CoolDownTimer = 0;
                 Anim.SetTrigger("Atk");
+                DmgPlayer();
             }
         }
-        if(EneMv != null)
+        if (EneMv != null)
         {
             EneMv.enabled = !PlayerSight();         // di chuyển nếu người chơi không trong tầm nhìn
         }
     }
     private bool PlayerSight()      //tấn công khi người chơi trong tầm nhìn
     {
-        RaycastHit2D hit = Physics2D.BoxCast(Box.bounds.center + transform.right * Range * transform.localScale.x * ColliderDistance, 
-            new Vector3(Box.bounds.size.x * Range, Box.bounds.size.y, Box.bounds.size.z),0, Vector2.left, 0, playerlayer);
-        if(hit.collider != null)
+        RaycastHit2D hit = Physics2D.BoxCast(Box.bounds.center + transform.right * Range * transform.localScale.x * ColliderDistance,
+            new Vector3(Box.bounds.size.x * Range, Box.bounds.size.y, Box.bounds.size.z), 0, Vector2.left, 0, playerlayer);
+        if (hit.collider != null)
         {
             PlayerHealth = hit.transform.GetComponent<GirlHealth>();
         }
@@ -58,7 +59,13 @@ public class Enemy : MonoBehaviour
     private void DmgPlayer()
     {
         if (PlayerSight())
-        PlayerHealth.TakeDmg(Dmg);
-        Debug.Log(gameObject.name + " is dealing damage to player.");
+        {
+            PlayerHealth.TakeDmg((int)Dmg);
+            Debug.Log(gameObject.name + " is dealing damage to player.");
+        }
+        else
+        {
+            Debug.LogWarning(gameObject.name + " can't find PlayerHealth.");
+        }
     }
 }
