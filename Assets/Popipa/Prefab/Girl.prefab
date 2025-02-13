@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &601371437957875747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3036610967648225081}
+  m_Layer: 3
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3036610967648225081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601371437957875747}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.83, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4929230118919164702}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3118647501365875870
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,6 +79,7 @@ GameObject:
   - component: {fileID: 4267737679808617683}
   - component: {fileID: 7929268664034955741}
   - component: {fileID: 455659131427637562}
+  - component: {fileID: 543403775336805543}
   m_Layer: 3
   m_Name: Girl
   m_TagString: Player
@@ -69,6 +101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3421356662592736138}
+  - {fileID: 3036610967648225081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3041534340149103987
@@ -232,6 +265,11 @@ MonoBehaviour:
   rg: {fileID: 4569506693548796761}
   MvSpeed: 6
   JumpHigh: 7
+  SpeedLeoTuong: 2
+  WallCheck: {fileID: 3036610967648225081}
+  WallLayer:
+    serializedVersion: 2
+    m_Bits: 128
   IsGround: 1
 --- !u!114 &4267737679808617683
 MonoBehaviour:
@@ -280,3 +318,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CpSound: {fileID: 0}
+--- !u!114 &543403775336805543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479768705765680574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5390899dd28bd4d45b15d0382844525c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  rg: {fileID: 4569506693548796761}

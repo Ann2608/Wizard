@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Coin
   - CheckPoint
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Wall
   - 
   - 
   - 

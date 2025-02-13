@@ -11,6 +11,12 @@ public class GirlMV : MonoBehaviour
     public float JumpHigh;
     private float move;
 
+    private bool DangLeoTuong;
+    [SerializeField] private float SpeedLeoTuong;
+
+    [SerializeField] private Transform WallCheck;
+    [SerializeField] private LayerMask WallLayer;
+
     private bool IsFacingRight = true;
     public bool IsGround;
 
@@ -31,6 +37,7 @@ public class GirlMV : MonoBehaviour
         {
             Jump();
         }
+        LeoTuong();
     }
 
     void Movement(float move)       // giá trị move từ -1 đến 1
@@ -55,6 +62,20 @@ public class GirlMV : MonoBehaviour
         Anim.SetBool("IsJumping", false);
     }
 
+
+    private bool IsLeoTuong()
+    {
+        return Physics2D.OverlapCircle(WallCheck.position, 0.2f, WallLayer);
+    }
+
+    private void LeoTuong()
+    {
+        if(IsLeoTuong() && !IsGround && move != 0f)
+        {
+            DangLeoTuong = true;
+            rg.velocity = new Vector2(rg.velocity.x, Mathf.Clamp(rg.velocity.y, -SpeedLeoTuong, float.MaxValue));
+        }
+    }
     void Flip()
     {
         IsFacingRight = !IsFacingRight;

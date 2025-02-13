@@ -27,10 +27,16 @@ public class HealthEnemy : MonoBehaviour
     }
     private void Die()
     {
-        Anim.SetBool("Dead",true);
+        if (Anim != null)
+        {
+            Anim.SetBool("Dead", true);
+        }
     }
     private void DestroyEnemy()
     {
-        Destroy(gameObject);
+        if (gameObject != null)
+        {
+            Destroy(gameObject);
+        }
     }
 }
