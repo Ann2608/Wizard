@@ -178,3 +178,4 @@ MonoBehaviour:
   playerlayer:
     serializedVersion: 2
     m_Bits: 8
+  HeadSound: {fileID: 8300000, guid: 81a78d9d4652bf246b4d67c19cd16e6b, type: 3}

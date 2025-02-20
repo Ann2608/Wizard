@@ -8,10 +8,12 @@ public class ArrowTrap : MonoBehaviour
     [SerializeField] private Transform FirePoint;   //vị trí mũi tên bay ra
     [SerializeField] private GameObject[] Arrow;
     private float CoolDownTimer;        //  thời gian giữa các đòn đánh
+    [SerializeField] private AudioClip ArrowSound;
 
     private void Atk()
     {
         CoolDownTimer = 0;
+        SoundManager.instance.PlaySound(ArrowSound);
 
         int arrowIndex = FindArrow();
 

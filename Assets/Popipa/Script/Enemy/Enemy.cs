@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int Dmg;
     [SerializeField] private float Range;
     [SerializeField] private float ColliderDistance;        //độ rộng của Collider
+    [SerializeField] private AudioClip SwordSound;
     private float CoolDownTimer = Mathf.Infinity;
     Rigidbody2D rg;
     Animator Anim;
@@ -27,10 +28,11 @@ public class Enemy : MonoBehaviour
         CoolDownTimer += Time.deltaTime;
         if (PlayerSight())
             {
-            if (CoolDownTimer >= AtkCoolDown)
+            if (CoolDownTimer >= AtkCoolDown && PlayerHealth.CurrentHealth > 0)
             {
                 CoolDownTimer = 0;
                 Anim.SetTrigger("Atk");
+                SoundManager.instance.PlaySound(SwordSound);
             }
         }
         if(EneMv != null)

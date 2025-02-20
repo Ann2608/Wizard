@@ -14,6 +14,8 @@ public class GirlHealth : MonoBehaviour
     [SerializeField] private float ChangeColorImmortal;         // nhân vật đổi màu khi bất tử
     private SpriteRenderer SpriteRenderer;          // đồi màu nhân vật trong Sprite
 
+    [SerializeField] private AudioClip DeadSound;
+    [SerializeField] private AudioClip HurtSound;
     Animator Anim;
     private void Awake()
     {
@@ -27,15 +29,18 @@ public class GirlHealth : MonoBehaviour
         if (CurrentHealth > 0)
         {
             StartCoroutine(immortal());
+            SoundManager.instance.PlaySound(HurtSound);
         }
         else
         {
             if (!Dead)
             {
                 Anim.SetTrigger("Dead");
+                
                 if (GetComponentInParent<GirlMV>() != null)
                     GetComponent<GirlMV>().enabled = false;
                 Dead = true;
+                SoundManager.instance.PlaySound(DeadSound);
             }
         }
     }

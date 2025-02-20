@@ -9,6 +9,7 @@ public class SpikeHead : Trap
     [SerializeField] private float Range;
     [SerializeField] private float DelayAtk;
     [SerializeField] private LayerMask playerlayer;
+    [SerializeField] private AudioClip HeadSound;
     private float CheckTime;
 
     private bool Attacking;
@@ -62,6 +63,7 @@ public class SpikeHead : Trap
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySound(HeadSound);
         base.OnTriggerEnter2D (collision);
         Stop();// dừng spike lại khi chạm vào cái gì đó
 

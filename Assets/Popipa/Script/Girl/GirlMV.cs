@@ -16,6 +16,7 @@ public class GirlMV : MonoBehaviour
 
     [SerializeField] private Transform WallCheck;
     [SerializeField] private LayerMask WallLayer;
+    [SerializeField] private AudioClip JumpSound;
 
     private bool IsFacingRight = true;
     public bool IsGround;
@@ -56,6 +57,7 @@ public class GirlMV : MonoBehaviour
     {
         rg.velocity = new Vector2(rg.velocity.x, JumpHigh);
         Anim.SetBool("IsJumping", true);
+        SoundManager.instance.PlaySound(JumpSound);
     }
     public void JumpOff()
     {

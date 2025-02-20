@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 7692450174812930216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.14, y: 4.33, z: 0}
+  m_LocalPosition: {x: -2.14, y: 5.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -255,6 +255,7 @@ MonoBehaviour:
   Dmg: 2
   Range: 0.7
   ColliderDistance: 1.2
+  SwordSound: {fileID: 8300000, guid: 02ee8eb2d01067c40955e5e106e0c5f2, type: 3}
   Box: {fileID: 1531136320480275924}
   playerlayer:
     serializedVersion: 2
@@ -302,6 +303,8 @@ MonoBehaviour:
   CurrentHealth: 60
   Anim: {fileID: 5651275367332170485}
   delayBeforeDeath: 1
+  DeadSound: {fileID: 0}
+  HurtSound: {fileID: 0}
 --- !u!1 &9192663886725538638
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 9192663886725538638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.99, y: 5.42, z: 0}
+  m_LocalPosition: {x: -9.83, y: 5.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

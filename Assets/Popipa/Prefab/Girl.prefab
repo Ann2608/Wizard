@@ -270,6 +270,7 @@ MonoBehaviour:
   WallLayer:
     serializedVersion: 2
     m_Bits: 128
+  JumpSound: {fileID: 8300000, guid: 9d2fdb39d84f2fd4f968fbd62f7f7e94, type: 3}
   IsGround: 1
 --- !u!114 &4267737679808617683
 MonoBehaviour:
@@ -286,10 +287,11 @@ MonoBehaviour:
   AtkCoolDown: 1
   AttackPoint: {fileID: 3421356662592736138}
   Range: 1
-  AtkDmg: 100
+  AtkDmg: 20
   Enemylayer:
     serializedVersion: 2
     m_Bits: 64
+  SwordSound: {fileID: 8300000, guid: 02ee8eb2d01067c40955e5e106e0c5f2, type: 3}
 --- !u!114 &7929268664034955741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,8 @@ MonoBehaviour:
   MaxHealth: 3
   Immortal: 1
   ChangeColorImmortal: 3
+  DeadSound: {fileID: 8300000, guid: 7fc7dca6550ef5e4baa55b750b969974, type: 3}
+  HurtSound: {fileID: 8300000, guid: 027545f25b7cad44ba74baa2333d9f1a, type: 3}
 --- !u!114 &455659131427637562
 MonoBehaviour:
   m_ObjectHideFlags: 0

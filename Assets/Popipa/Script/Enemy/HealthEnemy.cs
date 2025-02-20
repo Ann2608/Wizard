@@ -9,6 +9,8 @@ public class HealthEnemy : MonoBehaviour
     Rigidbody2D rg;
     public Animator Anim;
     public float delayBeforeDeath = 3f;
+    [SerializeField] private AudioClip DeadSound;
+    [SerializeField] private AudioClip HurtSound;
     private void Start()
     {
         rg = GetComponent<Rigidbody2D>();
@@ -19,6 +21,7 @@ public class HealthEnemy : MonoBehaviour
     {
         CurrentHealth -= Dmg;
         Anim.SetTrigger("Hit");
+        SoundManager.instance.PlaySound(HurtSound);
         if (CurrentHealth <= 0)
         {
             Die();
@@ -30,6 +33,7 @@ public class HealthEnemy : MonoBehaviour
         if (Anim != null)
         {
             Anim.SetBool("Dead", true);
+            SoundManager.instance.PlaySound(DeadSound);
         }
     }
     private void DestroyEnemy()

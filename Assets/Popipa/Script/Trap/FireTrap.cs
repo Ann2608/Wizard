@@ -10,6 +10,7 @@ public class Firetrap : MonoBehaviour
     [SerializeField] private float activeTime;              // thời gian lửa đốt
     private Animator anim;
     private SpriteRenderer spriteRend;
+    [SerializeField] private AudioClip FireSound;
 
     private bool triggered; // bẫy bắt đầu kích hoạt nhưng chưa gây sát thương
     private bool active; // bẫy kích hoạt và có thể gây sát thương lên player
@@ -54,11 +55,13 @@ public class Firetrap : MonoBehaviour
         spriteRend.color = Color.white; //kích hoạt xong trở lại thành bình thường  
         active = true;      //đang gây sát thương
         anim.SetBool("On", true);
+        SoundManager.instance.PlaySound(FireSound);
 
         //chờ sau khi hết thời gian gây sát thương sẽ trở về trạng thái ban đầu
         yield return new WaitForSeconds(activeTime);
         active = false;
         triggered = false;
         anim.SetBool("On", false);
+        
     }
 }

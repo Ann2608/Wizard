@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,6 +14,7 @@ public class GirlAtk : MonoBehaviour
     Animator Anim;
     private GirlMV girl;
     private float CoolDownTimer = Mathf.Infinity;
+    [SerializeField] private AudioClip SwordSound;
     void Awake()
     {
         Anim = GetComponent<Animator>();
@@ -29,6 +30,7 @@ public class GirlAtk : MonoBehaviour
     }
     private void Attack()
     {
+        SoundManager.instance.PlaySound(SwordSound);
         Anim.SetTrigger("Attack");
         CoolDownTimer = 0;
         Collider2D[] HitEnemy = Physics2D.OverlapCircleAll(AttackPoint.position, Range, Enemylayer);

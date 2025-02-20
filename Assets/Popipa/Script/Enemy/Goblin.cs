@@ -8,6 +8,7 @@ public class Goblin : MonoBehaviour
     [SerializeField] private float Dmg;
     [SerializeField] private float Range;
     [SerializeField] private float ColliderDistance;        //độ rộng của Collider
+    [SerializeField] private AudioClip SwordSound;
     private float CoolDownTimer = Mathf.Infinity;
     Rigidbody2D rg;
     Animator Anim;
@@ -32,6 +33,7 @@ public class Goblin : MonoBehaviour
                 CoolDownTimer = 0;
                 Anim.SetTrigger("Atk");
                 DmgPlayer();
+                SoundManager.instance.PlaySound(SwordSound);
             }
         }
         if (EneMv != null)
