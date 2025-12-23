@@ -12,7 +12,7 @@ public class GirlRespawn : MonoBehaviour
     private void Awake()
     {
         girlHealth = GetComponent<GirlHealth>();
-        UiMenu = FindObjectOfType<UIMenu>();        // tìm kiếm đối tượng UImenu trong scene, không nên dùng nhiều lần
+        UiMenu = FindFirstObjectByType<UIMenu>();        // tìm kiếm đối tượng UImenu trong scene, không nên dùng nhiều lần
     }
     public void CheckRespawn()
     {
@@ -29,10 +29,10 @@ public class GirlRespawn : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "CheckPoint")
+        if (collision.transform.tag == "CheckPoint")
         {
             CurrentCp = collision.transform;
-            // SoundManager.instance.PlaySound(CpSound)  nhac
+            SoundManager.instance.PlaySound(CpSound);
             collision.GetComponent<Collider2D>().enabled = false;
         }
     }

@@ -26,7 +26,7 @@ public class Ladder : MonoBehaviour
         if(IsClim)
         {
             rg.gravityScale = 0f;
-            rg.velocity = new Vector2 (rg.velocity.x, vertical * Speed);
+            rg.linearVelocity = new Vector2 (rg.linearVelocity.x, vertical * Speed);
         }
         else
         {

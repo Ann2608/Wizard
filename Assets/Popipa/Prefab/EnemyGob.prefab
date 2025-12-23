@@ -302,9 +302,9 @@ MonoBehaviour:
   MaxHealth: 60
   CurrentHealth: 60
   Anim: {fileID: 5651275367332170485}
-  delayBeforeDeath: 1
-  DeadSound: {fileID: 0}
-  HurtSound: {fileID: 0}
+  delayBeforeDeath: 0.5
+  DeadSound: {fileID: 8300000, guid: 7fc7dca6550ef5e4baa55b750b969974, type: 3}
+  HurtSound: {fileID: 8300000, guid: 027545f25b7cad44ba74baa2333d9f1a, type: 3}
 --- !u!1 &9192663886725538638
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
 {
     public Text coinText;
 
-    private int coin = 0;
+    public int coin = 0;
 
     private void Start()
     {

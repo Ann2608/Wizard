@@ -28,7 +28,7 @@ public class GirlAtk : MonoBehaviour
             Attack();
         CoolDownTimer += Time.deltaTime;
     }
-    private void Attack()
+    public void Attack()
     {
         SoundManager.instance.PlaySound(SwordSound);
         Anim.SetTrigger("Attack");

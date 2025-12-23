@@ -20,7 +20,11 @@ public class HealthEnemy : MonoBehaviour
     public void TakeDmg(int Dmg)
     {
         CurrentHealth -= Dmg;
-        Anim.SetTrigger("Hit");
+        if (Anim != null)
+        {
+            Anim.SetTrigger("Hit");
+        }
+
         SoundManager.instance.PlaySound(HurtSound);
         if (CurrentHealth <= 0)
         {

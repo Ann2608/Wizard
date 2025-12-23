@@ -18,9 +18,9 @@ public class UIMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);       //Load lại scene hiện tại
     }
-    public void MainMenu()
+    public void GotoMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
     public void Quit()
     {

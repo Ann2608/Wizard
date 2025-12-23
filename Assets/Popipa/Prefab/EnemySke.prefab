@@ -330,9 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ded0093a7aa4d49ba4d1b48f118413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 40
-  CurrentHealth: 40
+  MaxHealth: 60
+  CurrentHealth: 60
   Anim: {fileID: 1906888103394131760}
-  delayBeforeDeath: 1
+  delayBeforeDeath: 0.5
   DeadSound: {fileID: 8300000, guid: 7fc7dca6550ef5e4baa55b750b969974, type: 3}
   HurtSound: {fileID: 8300000, guid: 027545f25b7cad44ba74baa2333d9f1a, type: 3}

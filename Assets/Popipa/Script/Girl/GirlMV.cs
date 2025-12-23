@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GirlMV : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GirlMV : MonoBehaviour
     public float MvSpeed;
     public float JumpHigh;
     private float move;
+    public Text WinText;
 
     private bool DangLeoTuong;
     [SerializeField] private float SpeedLeoTuong;
@@ -43,7 +45,7 @@ public class GirlMV : MonoBehaviour
 
     void Movement(float move)       // giá trị move từ -1 đến 1
     {
-        rg.velocity = new Vector2(MvSpeed * move, rg.velocity.y);
+        rg.linearVelocity = new Vector2(MvSpeed * move, rg.linearVelocity.y);
         Speed = Mathf.Abs(MvSpeed * move);
 
         // Kiểm tra đổi hướng
@@ -55,7 +57,7 @@ public class GirlMV : MonoBehaviour
 
     void Jump()
     {
-        rg.velocity = new Vector2(rg.velocity.x, JumpHigh);
+        rg.linearVelocity = new Vector2(rg.linearVelocity.x, JumpHigh);
         Anim.SetBool("IsJumping", true);
         SoundManager.instance.PlaySound(JumpSound);
     }
@@ -75,7 +77,7 @@ public class GirlMV : MonoBehaviour
         if(IsLeoTuong() && !IsGround && move != 0f)
         {
             DangLeoTuong = true;
-            rg.velocity = new Vector2(rg.velocity.x, Mathf.Clamp(rg.velocity.y, -SpeedLeoTuong, float.MaxValue));
+            rg.linearVelocity = new Vector2(rg.linearVelocity.x, Mathf.Clamp(rg.linearVelocity.y, -SpeedLeoTuong, float.MaxValue));
         }
     }
     void Flip()
@@ -97,5 +99,14 @@ public class GirlMV : MonoBehaviour
     public bool CanAtk()
     {
         return move == 0 && IsGround == true;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+
+    {
+        if (collision.CompareTag("Win"))
+        {
+            WinText.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

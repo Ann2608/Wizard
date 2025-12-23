@@ -8,7 +8,7 @@ public class HealthCollect : MonoBehaviour
     [SerializeField] private AudioClip HealthSound;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             SoundManager.instance.PlaySound(HealthSound);
             collision.GetComponent<GirlHealth>().HealthPlus(HealthPlus);
